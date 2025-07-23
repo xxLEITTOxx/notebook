@@ -1,16 +1,20 @@
-/*
-  Створи список справ.
-  На сторінці є два інпути які має вводиться назва і текст задачі.
-  Після натискання на кнопку "Add" завдання додається до списку #task-list.
+import { refs } from './js/refs';
+import { addTask } from './js/tasks';
+import { createMarkup } from './js/render-tasks';
+import { tasks } from './js/tasks';
+refs.form.addEventListener('submit', event => {
+  event.preventDefault();
+  const myTaskName = refs.taskName.value.trim();
+  const myTaskDescription = refs.taskDescription.value.trim();
 
-  У кожної картки має бути кнопка "Delete", щоб можна було
-  прибрати завдання зі списку.
-  Список із завданнями має бути доступним після перезавантаження сторінки.
+  if (myTaskName === '' || myTaskDescription === '') {
+    alert('please fill inputs');
+  } else {
+    addTask({ title: myTaskName, description: myTaskDescription });
+    refs.form.reset();
+  }
+});
+// refs.form.elements.taskDescription.value.trim();
+createMarkup(tasks);
 
-  Розмітка картки задачі
-  <li class="task-list-item">
-      <button class="task-list-item-btn">Delete</button>
-      <h3>Заголовок</h3>
-      <p>Текст</p>
-  </li>
-*/
+// const exactButton = document.querySelector(h3.textContext === );
