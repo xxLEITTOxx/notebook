@@ -4,4 +4,7 @@ export const refs = {
   taskName: document.querySelector('input[name="taskName"]'),
   taskDescription: document.querySelector('input[name="taskDescription"]'),
   markupInsert: document.querySelector('#task-list'),
+  deleteButton: document.querySelector('task-list-item-btn'),
+  themeButton: document.querySelector('#themeToggle'),
+  body: document.body,
 };
